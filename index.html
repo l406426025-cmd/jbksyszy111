@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS追剧必备 - 伪装上架影视APP合集</title>
+    <meta name="description" content="亲测可用的iOS伪装影视APP合集，持续更新">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #9f7aea;
+            --primary-dark: #6c2bd9;
+            --bg: #f6f8fc;
+            --card: #ffffff;
+            --text: #1f2937;
+            --text-secondary: #6b7280;
+            --radius: 26px;
+            --radius-sm: 20px;
+            --shadow: 0 8px 30px rgba(124, 58, 237, 0.08);
+            --shadow-hover: 0 15px 40px rgba(124, 58, 237, 0.15);
+            --border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            padding: 20px 14px;
+            color: var(--text);
+            line-height: 1.65;
+            background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 50px 24px;
+            margin-bottom: 34px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin: 6px 0;
+        }
+
+        .notice {
+            background: linear-gradient(to right, #faf5ff, #fdf4ff);
+            border-left: 6px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: 24px 26px;
+            margin-bottom: 34px;
+            box-shadow: var(--shadow);
+        }
+
+        .notice h5 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 32px;
+            background: var(--card);
+            border: var(--border);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-header {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            padding: 22px 26px;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .app-item {
+            padding: 28px 26px;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.25s ease;
+        }
+
+        .app-item:hover {
+            background: #fbf8ff;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+        }
+
+        .app-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .app-tag {
+            display: inline-block;
+            padding: 6px 13px;
+            font-size: 12px;
+            border-radius: 50px;
+            margin-right: 6px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .tag-ipad {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .tag-code {
+            background: #4f46e5;
+            color: #fff;
+        }
+
+        .app-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+
+        .app-code {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 12px;
+            color: #374151;
+            word-break: break-all;
+            margin-top: 10px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #9ca3af;
+            font-size: 14px;
+            padding-bottom: 20px;
+        }
+
+        .footer i {
+            color: var(--primary);
+        }
+
+        @media (max-width:768px) {
+            .header {
+                padding: 40px 20px;
+                border-radius: var(--radius-sm);
+            }
+            .header h1 {
+                font-size: 26px;
+            }
+            .card {
+                border-radius: var(--radius-sm);
+            }
+            .card-header {
+                font-size: 16px;
+                padding: 20px 24px;
+            }
+            .app-item {
+                padding: 24px 20px;
+            }
+            .app-name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-mobile-screen-button"></i> iOS追剧必备</h1>
+            <p>苹果商店伪装上架的可变身影视APP合集</p>
+            <p>亲测可用 · 持续更新</p>
+            <p>无法下载 = 已失效，欢迎留言反馈</p>
+        </div>
+
+        <div class="notice">
+            <h5><i class="fas fa-exclamation-triangle"></i> 使用须知</h5>
+            <ul class="mb-0 ps-3">
+                <li>无法下载即代表已失效</li>
+                <li>变身失败请切换网络</li>
+                <li>建议用 Safari 浏览器打开</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-crown"></i> 精选可用APP
+            </div>
+            <div class="card-body">
+
+                <!-- 1 瓜子影视 -->
+                <div class="app-item">
+                    <div class="app-name">瓜子影视</div>
+                    <span class="app-tag tag-ipad">iPad兼容</span>
+                    <span class="app-tag tag-code">暗号：BGZ0839</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E7%93%9C%E5%AD%90%E5%BD%B1%E8%A7%86/id6462358828" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.155.cn/app/105695.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：顶部搜索框 》输入或粘贴暗号「 BGZ0839 」 》 允许网络 》搜索<br>
+                        小姬简评：可观看体育直播、小说、漫画，支持缓存、投屏功能（部分功能需登录）<br>
+                        若未显示允许粘贴提示，可复制下面代码：
+                    </div>
+                    <div class="app-code">#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839</div>
+                </div>
+
+                <!-- 2 持记 / 玄海拾序 -->
+                <div class="app-item">
+                    <div class="app-name">持记 / 玄海拾序</div>
+                    <span class="app-tag tag-ipad">iPad兼容</span>
+                    <span class="app-tag tag-code">暗号：BGZ0839</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E6%8C%81%E8%AE%B0/id6458563210" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.pc6.com/az/1084721.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：输入暗号「 BGZ0839 」即可解锁<br>
+                        小姬简评：界面简洁，资源丰富，无广告干扰
+                    </div>
+                </div>
+
+                <!-- 3 囧漫 -->
+                <div class="app-item">
+                    <div class="app-name">囧漫</div>
+                    <span class="app-tag tag-code">暗号：1234567</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E5%9B%A7%E6%BC%AB/id6458822210" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.155.cn/app/105693.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：设置 → 意见反馈 → 输入暗号「 1234567 」 → 提交<br>
+                        小姬简评：影视+漫画双模式，资源更新快
+                    </div>
+                </div>
+
+                <!-- 4 可可影视 -->
+                <div class="app-item">
+                    <div class="app-name">可可影视</div>
+                    <span class="app-tag tag-ipad">iPad适配</span>
+                    <span class="app-tag tag-code">暗号：D2777 / c883</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E5%8F%AF%E5%8F%AF%E5%BD%B1%E8%A7%86/id6462358829" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.pc6.com/az/1084722.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：意见反馈 → 输入对应暗号 → 提交 → 重启APP<br>
+                        小姬简评：高清线路多，播放流畅，支持缓存
+                    </div>
+                </div>
+
+                <!-- 5 小柠檬 -->
+                <div class="app-item">
+                    <div class="app-name">小柠檬</div>
+                    <span class="app-tag tag-ipad">iPad适配</span>
+                    <span class="app-tag tag-code">暗号：666</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E5%B0%8F%E6%9F%A0%E6%AA%AC/id6458563211" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.155.cn/app/105694.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：右上角输入「 666 」提交 → 关闭重开即可<br>
+                        小姬简评：支持弹幕、投屏、缓存，使用方便
+                    </div>
+                </div>
+
+                <!-- 6 电影天堂 -->
+                <div class="app-item">
+                    <div class="app-name">电影天堂</div>
+                    <span class="app-tag tag-code">暗号：dy520 / dytt</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E7%94%B5%E5%BD%B1%E5%A4%A9%E5%A0%82/id6462358830" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.pc6.com/az/1084723.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：意见反馈输入暗号提交即可解锁<br>
+                        小姬简评：支持4K画质，影视资源非常全
+                    </div>
+                </div>
+
+                <!-- 7 影财统筹 / 灯影智加 -->
+                <div class="app-item">
+                    <div class="app-name">影财统筹 / 灯影智加</div>
+                    <span class="app-tag tag-ipad">iPad适配</span>
+                    <span class="app-tag tag-code">暗号：D7427 / D7250</span>
+                    <div class="app-desc">
+                        下载链接：<a href="https://apps.apple.com/cn/app/%E7%81%AF%E8%B4%A2%E7%BB%9F%E7%AD%AB/id6458563212" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        其他版本（安卓）：<a href="https://www.155.cn/app/105696.html" style="color:#7c3aed">点击下载安卓版</a><br>
+                        变身方法：底部提交反馈 → 输入暗号 → 提交<br>
+                        小姬简评：无广告，纯播放界面，备用首选
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><i class="fas fa-heart"></i> 持续更新 · 仅供学习交流</p>
+            <p>托管于 GitHub Pages</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
