@@ -205,8 +205,8 @@
             position: relative;
         }
 
-        /* 添加提示箭头和文字样式 */
-        .collapsible-header .hint {
+        /* 添加点击展开提示样式 - 简化版 */
+        .collapsible-header .expand-hint {
             position: absolute;
             right: 20px;
             font-size: 13px;
@@ -481,7 +481,7 @@
                 padding: 18px 22px;
             }
             
-            .collapsible-header .hint {
+            .collapsible-header .expand-hint {
                 right: 10px;
                 font-size: 12px;
             }
@@ -589,7 +589,7 @@
         <div class="collapsible-card">
             <div class="collapsible-header" onclick="toggleCollapse(this)">
                 <i class="fas fa-android"></i> 精选可用安卓影视软件
-                <span class="hint">点击展开查看下载链接 <i class="fas fa-chevron-down"></i></span>
+                <span class="expand-hint">点击展开</span>
             </div>
             <div class="collapsible-content" id="androidContent">
                 <div class="android-list">
@@ -798,14 +798,14 @@
         // 可折叠板块功能
         function toggleCollapse(header) {
             const content = header.nextElementSibling;
-            const icon = header.querySelector('.fa-chevron-down');
+            const hint = header.querySelector('.expand-hint');
             
             content.classList.toggle('show');
             
             if (content.classList.contains('show')) {
-                icon.style.transform = 'rotate(180deg)';
+                hint.textContent = '点击收起';
             } else {
-                icon.style.transform = 'rotate(0deg)';
+                hint.textContent = '点击展开';
             }
         }
     </script>
