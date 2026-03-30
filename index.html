@@ -173,8 +173,8 @@
             border: none;
             display: flex;
                 align-items: center;
+                justify-content: center; /* 居中显示 */
             gap: 10px;
-            justify-content: center; /* 居中显示 */
             text-align: center;
         }
 
@@ -202,13 +202,26 @@
             gap: 10px;
             cursor: pointer;
             text-align: center;
+            position: relative;
+        }
+
+        /* 添加提示箭头和文字样式 */
+        .collapsible-header .hint {
+            position: absolute;
+            right: 20px;
+            font-size: 13px;
+            opacity: 0.8;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .collapsible-content {
             padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3 ease-out;
+            transition: max-height 0.3s ease-out;
         }
 
         .collapsible-content.show {
@@ -244,7 +257,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: color 0.2;
+            transition: color 0.2s;
         }
 
         .android-item a:hover {
@@ -467,6 +480,11 @@
                 font-size: 17px;
                 padding: 18px 22px;
             }
+            
+            .collapsible-header .hint {
+                right: 10px;
+                font-size: 12px;
+            }
 
             .app-item {
                 padding: 26px 20px;
@@ -570,8 +588,8 @@
         <!-- 新增：精选可用安卓影视软件（可折叠板块） -->
         <div class="collapsible-card">
             <div class="collapsible-header" onclick="toggleCollapse(this)">
-                <i class="fas fa-android"></i> 精选可用安卓影视软件（点击展开）
-                <i class="fas fa-chevron-down ms-auto"></i>
+                <i class="fas fa-android"></i> 精选可用安卓影视软件
+                <span class="hint">点击展开查看下载链接 <i class="fas fa-chevron-down"></i></span>
             </div>
             <div class="collapsible-content" id="androidContent">
                 <div class="android-list">
@@ -589,8 +607,7 @@
                     </div>
                     <div class="android-item">
                         <i class="fas fa-eye"></i>
-                        <span>好好看</span>
-                        <span style="color: var(--text-secondary); font-size: 14px; margin-left: 10px;">（暂无下载链接）</span>
+                        <a href="https://vedl.lxapp0.shop/res/apk/hkan/202602/11/app/d10648-HkanD10648B260211203534-3.4.0.30400_gr.apk" target="_blank">好好看</a>
                     </div>
                     <div class="android-item">
                         <i class="fas fa-cat"></i>
