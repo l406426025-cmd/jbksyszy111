@@ -34,7 +34,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
             padding: 20px 14px;
             color: var(--text);
-            line-height: 1.65;
+            line-height: 1.7;
             background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 20%),
                               radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
         }
@@ -67,7 +67,7 @@
         }
 
         .header h1 {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 14px;
@@ -79,7 +79,7 @@
 
         .header p {
             color: var(--text-secondary);
-            font-size: 15px;
+            font-size: 16px;
             margin: 6px 0;
         }
 
@@ -88,18 +88,46 @@
             border-left: 6px solid var(--primary);
             border-radius: var(--radius-sm);
             padding: 24px 26px;
-            margin-bottom: 34px;
+            margin-bottom: 24px;
             box-shadow: var(--shadow);
         }
 
         .notice h5 {
             color: var(--primary-dark);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 16px;
+            font-size: 18px;
+        }
+
+        /* 工具按钮样式 */
+        .tool-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .tool-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tool-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.03);
+            color: #fff;
         }
 
         .card {
@@ -117,7 +145,7 @@
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             color: white;
             font-weight: 600;
-            font-size: 17px;
+            font-size: 18px;
             padding: 22px 26px;
             border: none;
             display: flex;
@@ -135,16 +163,16 @@
         }
 
         .app-name {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .app-tag {
             display: inline-block;
-            padding: 6px 13px;
-            font-size: 12px;
+            padding: 6px 14px;
+            font-size: 13px;
             border-radius: 50px;
             margin-right: 6px;
             margin-bottom: 16px;
@@ -170,14 +198,23 @@
 
         .app-desc {
             color: var(--text-secondary);
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.9;
         }
 
         .app-desc br {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             content: "";
+        }
+
+        /* 统一标签样式 */
+        .label {
+            font-weight: 700;
+            font-size: 16px;
+            color: #7c3aed;
+            display: inline-block;
+            min-width: 95px;
         }
 
         .app-code {
@@ -216,14 +253,6 @@
 
         .footer i {
             color: var(--primary);
-        }
-
-        /* 小标题高亮样式 */
-        .label {
-            font-weight: 700;
-            color: #7c3aed;
-            display: inline-block;
-            min-width: 90px;
         }
 
         /* 复制提示 */
@@ -276,7 +305,7 @@
             color: var(--primary);
         }
 
-        /* ———— 二维码排版 ———— */
+        /* 二维码排版 */
         .qrcode-group {
             display: flex;
             gap: 20px;
@@ -296,17 +325,17 @@
             margin-bottom: 10px;
         }
         .qrcode-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 4px;
         }
         .qrcode-tip {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-secondary);
         }
 
-        /* ———— 手机端彻底重写 ———— */
+        /* 手机端适配 */
         @media (max-width:768px) {
             body {
                 padding: 16px 10px;
@@ -317,22 +346,22 @@
                 margin-bottom: 24px;
             }
             .header h1 {
-                font-size: 24px;
+                font-size: 26px;
             }
             .card {
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
             .card-header {
-                font-size: 16px;
+                font-size: 17px;
                 padding: 18px 22px;
             }
             .app-item {
                 padding: 26px 20px;
             }
             .app-name {
-                font-size: 19px;
-                margin-bottom: 8px;
+                font-size: 20px;
+                margin-bottom: 10px;
             }
             .app-tag {
                 margin-bottom: 14px;
@@ -340,6 +369,10 @@
             .app-desc {
                 font-size: 15px;
                 line-height: 1.9;
+            }
+            .label {
+                min-width: 90px;
+                font-size: 15px;
             }
             .app-code {
                 margin-top: 16px;
@@ -363,6 +396,13 @@
             .qrcode-item img {
                 max-width: 200px;
             }
+            .tool-buttons {
+                gap: 8px;
+            }
+            .tool-btn {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -382,8 +422,22 @@
                 <li>无法下载即代表已失效</li>
                 <li>变身失败请切换网络</li>
                 <li>建议用 Safari 浏览器打开</li>
-                <li>✅ 暗号 + 代码 支持**一键点击复制**</li>
+                <li>✅ 暗号 + 代码 支持一键点击复制</li>
             </ul>
+
+            <!-- 新增：快捷工具按钮 -->
+            <h5 class="mt-4"><i class="fas fa-gift"></i> 快捷资源工具</h5>
+            <div class="tool-buttons">
+                <a href="https://pan.quark.cn/s/7e29c4d4c2d0#/list/share" target="_blank" class="tool-btn">🍉 吃吃瓜</a>
+                <a href="http://aa.plool.com/app/index.html?id=211229kl" target="_blank" class="tool-btn">🎬 搜影视</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/NAcwwCbR3iijNgkXiYNcptednsb?from=from_parent_docx" target="_blank" class="tool-btn">📺 搜短剧</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/FlwkwCVE5iBOB5kGAbocHIcrntg" target="_blank" class="tool-btn">📖 搜小说</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/FwfZwIZySi63ttkw40wc1EngnMh" target="_blank" class="tool-btn">🎵 搜音乐</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/R9aLwGZH6iShehk3A0QcgUmOnCh" target="_blank" class="tool-btn">🎨 搜漫画</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/SuEiwqa9ciRcB1kV5GucBuk5n2e" target="_blank" class="tool-btn">🦸 搜动漫</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/N6Zgwhzgri72Avko9Mycdsz4nAg" target="_blank" class="tool-btn">🎧 广播剧</a>
+                <a href="https://tcnc02rqvgh6.feishu.cn/wiki/N6Zgwhzgri72Avko9Mycdsz4nAg" target="_blank" class="tool-btn">📻 有声书</a>
+            </div>
         </div>
 
         <div class="card">
@@ -493,7 +547,7 @@
             </div>
         </div>
 
-        <!-- ===================== 更多精品资源网站 ===================== -->
+        <!-- 更多精品资源网站 -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-link"></i> 小姬长期维护的其他资源站
@@ -534,7 +588,7 @@
             </div>
         </div>
 
-        <!-- ===================== 粉丝群二维码板块 ===================== -->
+        <!-- 粉丝群二维码板块 -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-users"></i> 粉丝交流群
@@ -553,7 +607,7 @@
             </div>
         </div>
 
-        <!-- ===================== 页脚 ===================== -->
+        <!-- 页脚 -->
         <div class="footer">
             <p><i class="fas fa-heart"></i> 持续更新 · 仅供学习交流</p>
             <p>公众号：软姬工具箱</p>
