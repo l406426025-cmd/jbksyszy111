@@ -18,6 +18,8 @@
             --primary: #7c3aed;
             --primary-light: #9f7aea;
             --primary-dark: #6c2bd9;
+            --link-color: #8b5cf6;
+            --link-hover: #7c3aed;
             --bg: #f6f8fc;
             --card: #ffffff;
             --text: #1f2937;
@@ -36,7 +38,7 @@
             color: var(--text);
             line-height: 1.7;
             background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 20%),
-                              radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
+            radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
         }
 
         .container {
@@ -85,7 +87,7 @@
 
         .notice {
             background: linear-gradient(to right, #faf5ff, #fdf4ff);
-            border-left: 6px solid var(--primary);
+            border-left: 6px var(--primary) solid;
             border-radius: var(--radius-sm);
             padding: 24px 26px;
             margin-bottom: 24px;
@@ -103,29 +105,32 @@
         }
 
         /* 独立快捷工具卡片 */
-        .tool-card{
+        .tool-card {
             border: none;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             background: var(--card);
             border: var(--border);
-            padding:26px;
-            margin-bottom:32px;
+            padding: 26px;
+            margin-bottom: 32px;
         }
-        .tool-card h5{
-            font-size:18px;
-            font-weight:700;
-            color:var(--primary-dark);
-            display:flex;
-            align-items:center;
-            gap:8px;
-            margin-bottom:20px;
+
+        .tool-card h5 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
         }
+
         .tool-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .tool-btn {
             background: var(--primary);
             color: #fff;
@@ -141,6 +146,7 @@
             align-items: center;
             gap: 6px;
         }
+
         .tool-btn:hover {
             background: var(--primary-dark);
             transform: scale(1.03);
@@ -246,9 +252,11 @@
             transition: background 0.2;
             position: relative;
         }
+
         .app-code:hover {
             background: #e9eaf0;
         }
+
         .app-code::after {
             content: '点击复制';
             position: absolute;
@@ -285,38 +293,46 @@
             pointer-events: none;
             transition: opacity 0.3;
         }
+
         .copy-toast.show {
             opacity: 1;
         }
 
+        /* 资源列表：居中 + 去序号 + 好看配色 */
         .resource-list {
-            padding: 20px 24px;
+            padding: 24px;
+            text-align: center;
         }
+
         .resource-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 14px 0;
             border-bottom: 1px solid #f3f4f6;
         }
+
         .resource-item:last-child {
             border-bottom: none;
         }
+
         .resource-item i {
-            color: var(--primary);
+            color: var(--link-color);
             margin-right: 12px;
             font-size: 16px;
             width: 16px;
             text-align: center;
         }
+
         .resource-item a {
-            color: var(--text);
+            color: var(--link-color);
             text-decoration: none;
             font-size: 15px;
-            flex: 1;
-            transition: color 0.2;
+            transition: color 0.2s;
         }
+
         .resource-item a:hover {
-            color: var(--primary);
+            color: var(--link-hover);
         }
 
         .qrcode-group {
@@ -326,23 +342,27 @@
             justify-content: center;
             align-items: flex-start;
         }
+
         .qrcode-item {
             flex: 1;
             text-align: center;
         }
+
         .qrcode-item img {
             width: 100%;
             max-width: 180px;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             margin-bottom: 10px;
         }
+
         .qrcode-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 4px;
         }
+
         .qrcode-tip {
             font-size: 13px;
             color: var(--text-secondary);
@@ -352,65 +372,82 @@
             body {
                 padding: 16px 10px;
             }
+
             .header {
                 padding: 36px 20px;
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
+
             .header h1 {
                 font-size: 26px;
             }
-            .card,.tool-card {
+
+            .card, .tool-card {
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
+
             .card-header {
                 font-size: 17px;
                 padding: 18px 22px;
             }
+
             .app-item {
                 padding: 26px 20px;
             }
+
             .app-name {
                 font-size: 20px;
                 margin-bottom: 10px;
             }
+
             .app-tag {
                 margin-bottom: 14px;
             }
+
             .app-desc {
                 font-size: 15px;
                 line-height: 1.9;
             }
+
             .label {
                 min-width: 90px;
                 font-size: 15px;
             }
+
             .app-code {
                 margin-top: 16px;
                 padding: 12px 14px;
                 font-size: 11px;
             }
+
             .resource-list {
                 padding: 16px 20px;
             }
+
             .resource-item {
                 padding: 12px 0;
             }
+
             .resource-item a {
                 font-size: 14px;
             }
+
             .qrcode-group {
                 flex-direction: column;
                 align-items: center;
                 gap: 24px;
             }
+
             .qrcode-item img {
                 max-width: 200px;
             }
+
             .tool-buttons {
                 gap: 8px;
             }
+
             .tool-btn {
                 padding: 8px 14px;
                 font-size: 13px;
@@ -555,7 +592,7 @@
             </div>
         </div>
 
-        <!-- 更多精品资源网站 -->
+        <!-- 更多精品资源网站（已优化：居中+去序号+好看配色） -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-link"></i> 小姬长期维护的其他资源站
@@ -563,35 +600,35 @@
             <div class="resource-list">
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbks-fabuye%2F" target="_blank">永不迷路发布页 ①</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbks-fabuye%2F" target="_blank">永不迷路发布页</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2F" target="_blank">小姬的资源仓库 ②</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2F" target="_blank">小姬的资源仓库</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fxiaoji.github.io%2F" target="_blank">小火箭免费账号 ③</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fxiaoji.github.io%2F" target="_blank">小火箭免费账号</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbksdyjdyfb%2F" target="_blank">永久的免费订阅 ④</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbksdyjdyfb%2F" target="_blank">永久的免费订阅</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fdlrjxzjbks%2F" target="_blank">代理工具软件集 ⑤</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fdlrjxzjbks%2F" target="_blank">代理工具软件集</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbskleddjjctja%2F" target="_blank">低价魔法精选集 ⑥</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbskleddjjctja%2F" target="_blank">低价魔法精选集</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbkslevpn1%2F" target="_blank">免费魔法软件集 ⑦</a>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbkslevpn1%2F" target="_blank">免费魔法软件集</a>
                 </div>
                 <div class="resource-item">
                     <i class="fas fa-chevron-right"></i>
-                    <a href="https://project.jbks.de5.net" target="_blank">副业项目信息差 ⑧</a>
+                    <a href="https://project.jbks.de5.net" target="_blank">副业项目信息差</a>
                 </div>
             </div>
         </div>
