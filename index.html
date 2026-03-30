@@ -34,15 +34,21 @@
         body {
             background: var(--bg);
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-            padding: 20px 14px;
             color: var(--text);
             line-height: 1.7;
             background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 20%),
             radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
+            /* 修复整体居中问题 */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 780px;
+            width: 100%;
+            padding: 20px 14px;
+            /* 确保容器居中 */
             margin: 0 auto;
         }
 
@@ -74,9 +80,9 @@
             color: var(--primary);
             margin-bottom: 14px;
             display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
         .header p {
@@ -99,8 +105,8 @@
             font-weight: 700;
             margin-bottom: 12px;
             display: flex;
-                align-items: center;
-                gap: 8px;
+            align-items: center;
+            gap: 8px;
             font-size: 18px;
         }
 
@@ -120,15 +126,16 @@
             font-weight: 700;
             color: var(--primary-dark);
             display: flex;
-                align-items: center;
-                gap: 8px;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 20px;
         }
 
         .tool-buttons {
             display: flex;
-                flex-wrap: wrap;
+            flex-wrap: wrap;
             gap: 10px;
+            justify-content: center; /* 工具按钮居中 */
         }
 
         .tool-btn {
@@ -140,10 +147,10 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2;
+            transition: all 0.2s;
             text-decoration: none;
             display: inline-flex;
-                align-items: center;
+            align-items: center;
             gap: 6px;
         }
 
@@ -161,7 +168,7 @@
             margin-bottom: 32px;
             background: var(--card);
             border: var(--border);
-            transition: all 0.35 cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-header {
@@ -172,8 +179,8 @@
             padding: 22px 26px;
             border: none;
             display: flex;
-                align-items: center;
-                justify-content: center; /* 居中显示 */
+            align-items: center;
+            justify-content: center; /* 标题强制居中 */
             gap: 10px;
             text-align: center;
         }
@@ -197,15 +204,15 @@
             padding: 22px 26px;
             border: none;
             display: flex;
-                align-items: center;
-                justify-content: center; /* 居中显示 */
+            align-items: center;
+            justify-content: center; /* 标题强制居中 */
             gap: 10px;
             cursor: pointer;
             text-align: center;
             position: relative;
         }
 
-        /* 添加点击展开提示样式 - 简化版 */
+        /* 添加点击展开提示样式 */
         .collapsible-header .expand-hint {
             position: absolute;
             right: 20px;
@@ -221,25 +228,30 @@
             padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3 ease-out;
+            transition: max-height 0.3s ease-out;
         }
 
         .collapsible-content.show {
             max-height: 1000px;
         }
 
-        /* 安卓软件列表样式 - 修改为居中 */
+        /* 安卓软件列表样式 - 完全居中 */
         .android-list {
             padding: 24px;
-            text-align: center; /* 列表内容居中 */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 强制子元素居中 */
         }
 
         .android-item {
             display: flex;
             align-items: center;
             padding: 16px 0;
+            width: 100%;
+            max-width: 300px; /* 限制最大宽度 */
             border-bottom: 1px solid #f3f4f6;
-            justify-content: center; /* 项目居中 */
+            justify-content: center; /* 项目内容居中 */
         }
 
         .android-item:last-child {
@@ -259,7 +271,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: color 0.2;
+            transition: color 0.2s;
         }
 
         .android-item a:hover {
@@ -292,7 +304,7 @@
             font-weight: 600;
             letter-spacing: 0.3px;
             cursor: pointer;
-            transition: all 0.2;
+            transition: all 0.2s;
         }
 
         .app-tag:hover {
@@ -339,7 +351,7 @@
             margin-top: 14px;
             border: 1px solid #e5e7eb;
             cursor: pointer;
-            transition: background 0.2;
+            transition: background 0.2s;
             position: relative;
         }
 
@@ -381,25 +393,30 @@
             font-size: 14px;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3;
+            transition: opacity 0.3s;
         }
 
         .copy-toast.show {
             opacity: 1;
         }
 
-        /* 资源列表：居中 + 去序号 + 好看配色 */
+        /* 资源列表：完全居中 */
         .resource-list {
             padding: 24px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .resource-item {
             display: flex;
-                align-items: center;
-                justify-content: center;
+            align-items: center;
             padding: 14px 0;
+            width: 100%;
+            max-width: 300px;
             border-bottom: 1px solid #f3f4f6;
+            justify-content: center;
         }
 
         .resource-item:last-child {
@@ -418,7 +435,7 @@
             color: var(--link-color);
             text-decoration: none;
             font-size: 15px;
-            transition: color 0.2;
+            transition: color 0.2s;
         }
 
         .resource-item a:hover {
@@ -430,12 +447,13 @@
             gap: 20px;
             padding: 24px;
             justify-content: center;
-                align-items: flex-start;
+            align-items: flex-start;
         }
 
         .qrcode-item {
             flex: 1;
             text-align: center;
+            max-width: 200px; /* 限制二维码卡片宽度 */
         }
 
         .qrcode-item img {
@@ -458,8 +476,8 @@
             color: var(--text-secondary);
         }
 
-        @media (max-width:768px) {
-            body {
+        @media (max-width: 768px) {
+            .container {
                 padding: 16px 10px;
             }
 
@@ -547,6 +565,12 @@
                 padding: 8px 14px;
                 font-size: 13px;
             }
+            
+            /* 在手机上确保所有元素完全居中 */
+            .android-item, .resource-item {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -597,23 +621,23 @@
                 <div class="android-list">
                     <div class="android-item">
                         <i class="fas fa-video"></i>
-                        <a href="https://vedl.lxapp0.shop/res/apk/mt/202602/18/app/d10755-MtD10755B260218114236-5.0.3.50003_lx.apk" target="_blank">蜜桃视频（涩涩软件）</a>
+                        <a href="https://vedl.lxapp0.shop/res/apk/mt/202602/18/app/d10755-MtD10755B260218114236-5.0.3.50003_lx.apk" target="_blank">某某视频</a>
                     </div>
                     <div class="android-item">
                         <i class="fas fa-film"></i>
-                        <a href="https://vedl.lxapp0.shop/res/apk/kkdy/202602/11/app/d10647-KkdyD10647B260211203344-3.4.0.30400_gr.apk" target="_blank">可可影视（内涵福利）</a>
+                        <a href="https://vedl.lxapp0.shop/res/apk/kkdy/202602/11/app/d10647-KkdyD10647B260211203344-3.4.0.30400_gr.apk" target="_blank">可可影视</a>
                     </div>
                     <div class="android-item">
                         <i class="fas fa-play-circle"></i>
-                        <a href="https://down.bbcnw.cn/down/apk/judao/202603/D6823-v2.1.0.apk" target="_blank">剧岛影视（免费无广）</a>
+                        <a href="https://down.bbcnw.cn/down/apk/judao/202603/D6823-v2.1.0.apk" target="_blank">剧岛</a>
                     </div>
                     <div class="android-item">
                         <i class="fas fa-eye"></i>
-                        <a href="https://vedl.lxapp0.shop/res/apk/hkan/202602/11/app/d10648-HkanD10648B260211203534-3.4.0.30400_gr.apk" target="_blank">好好看（内涵福利）</a>
+                        <a href="https://vedl.lxapp0.shop/res/apk/hkan/202602/11/app/d10648-HkanD10648B260211203534-3.4.0.30400_gr.apk" target="_blank">好好看</a>
                     </div>
                     <div class="android-item">
                         <i class="fas fa-cat"></i>
-                        <a href="https://vedl.lxapp0.shop/res/apk/ncat/202603/30/app/d11765-NcatD11765B260330175816-3.4.0.30400_gr.apk" target="_blank">网飞猫（内涵福利）</a>
+                        <a href="https://vedl.lxapp0.shop/res/apk/ncat/202603/30/app/d11765-NcatD11765B260330175816-3.4.0.30400_gr.apk" target="_blank">网飞猫</a>
                     </div>
                 </div>
             </div>
@@ -703,10 +727,181 @@
                         <span class="label">小姬简评：</span>支持弹幕、投屏、缓存
                     </div>
                 </div>
+                
+                <!-- ===== 以下是新增的13个iOS软件 ===== -->
+                
+                <!-- 7 爱其意 -->
+                <div class="app-item">
+                    <div class="app-name">爱其意</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>筑材质检<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E7%AD%91%E6%9D%90%E6%99%BA%E6%A3%80/id6760580262" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/i4LtE2k0fu1c" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>与"筑材质检"伪装名契合度高，隐蔽性强
+                    </div>
+                </div>
+                
+                <!-- 8 松子影院 -->
+                <div class="app-item">
+                    <div class="app-name">松子影院</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>松子影院<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E6%9D%BE%E5%AD%90%E5%BD%B1%E9%99%A2/id6760806240" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>资源丰富，界面简洁
+                    </div>
+                </div>
+                
+                <!-- 9 看世界 -->
+                <div class="app-item">
+                    <div class="app-name">看世界</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'2026')">暗号：2026</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>货灵宝<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E8%B4%A7%E7%81%B5%E5%AE%9D/id6760533315" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/is0W73l0xq3i" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 2026 」提交<br>
+                        <span class="label">备注：</span>暗号已从旧版「999」更新为「2026」
+                    </div>
+                </div>
+                
+                <!-- 10 小柚子 -->
+                <div class="app-item">
+                    <div class="app-name">小柚子</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'999')">暗号：999</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>织暖造物<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E7%BB%87%E6%9A%96%E9%80%A0%E7%89%A9/id6760806240" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/iXQcY3l0xr3c" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 999 」提交<br>
+                        <span class="label">小姬简评：</span>界面清新，资源更新及时
+                    </div>
+                </div>
+                
+                <!-- 11 蒙太奇 -->
+                <div class="app-item">
+                    <div class="app-name">蒙太奇</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>宠繁育记<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E5%AE%A0%E7%B9%81%E8%82%B2%E8%AE%B0/id6760533952" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/iqd6V3l0xq2b" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">备注：</span>据反馈，此应用登录账号可能记不住播放进度，建议不登录使用
+                    </div>
+                </div>
+                
+                <!-- 12 大师兄影视 -->
+                <div class="app-item">
+                    <div class="app-name">大师兄影视</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>营数记<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E8%90%A5%E6%95%B0%E8%AE%B0/id6760293713" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/iJw6G3l0xn4f" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>基础功能完善，资源覆盖面广
+                    </div>
+                </div>
+                
+                <!-- 13 简单影视 -->
+                <div class="app-item">
+                    <div class="app-name">简单影视</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>简解数盒<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E7%AE%80%E8%A7%A3%E6%95%B0%E7%9B%92/id6760461204" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/i5Y5D2k0fs8b" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>界面简约，功能直接
+                    </div>
+                </div>
+                
+                <!-- 14 壹影视 -->
+                <div class="app-item">
+                    <div class="app-name">壹影视</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>一筒一记<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E4%B8%80%E7%AD%92%E4%B8%80%E8%AE%B0/id6760799745" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/i8U5L2k0fz5g" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>新版本更新频繁，资源库在持续扩充中
+                    </div>
+                </div>
+                
+                <!-- 15 荐片 -->
+                <div class="app-item">
+                    <div class="app-name">荐片</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>客单小助<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E5%AE%A2%E5%8D%95%E5%B0%8F%E5%8A%A9/id6760580034" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/iU5sN2k0fw7a" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>功能命名直白，主打追剧核心体验
+                    </div>
+                </div>
+                
+                <!-- 16 来看吧 -->
+                <div class="app-item">
+                    <div class="app-name">来看吧</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>旋转眼力王<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/us/app/%E6%97%8B%E8%BD%AC%E7%9C%BC%E5%8A%9B%E7%8E%8B/id6760801752" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/if0Kj2k0fx6j" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>播放体验稳定，对海外资源支持较好
+                    </div>
+                </div>
+                
+                <!-- 17 小企鹅 -->
+                <div class="app-item">
+                    <div class="app-name">小企鹅</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>皂坊手记<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E7%9A%82%E5%9D%8A%E6%89%8B%E8%AE%B0/id6760812711" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/iGq6a2k0g0de" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>界面简洁，资源质量尚可
+                    </div>
+                </div>
+                
+                <!-- 18 闪乐 -->
+                <div class="app-item">
+                    <div class="app-name">闪乐</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>数序通<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E6%95%B0%E5%BA%8F%E9%80%9A/id6760334595" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/ix4hO3l0xo9a" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>界面简约，功能直接，无明显广告干扰
+                    </div>
+                </div>
+                
+                <!-- 19 太空影视 -->
+                <div class="app-item">
+                    <div class="app-name">太空影视</div>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>智械云管<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E6%99%BA%E6%A2%B0%E4%BA%91%E7%AE%A1/id6760335194" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">其他版本：</span><a href="https://wwapb.lanzout.com/i0Y8h3l0xodg" style="color:#7c3aed">点击下载安卓版</a><br>
+                        <span class="label">变身方法：</span>通过「意见反馈」功能，输入暗号「 666 」提交<br>
+                        <span class="label">小姬简评：</span>技术向命名，适合对科技感界面偏好的用户
+                    </div>
+                </div>
+                
             </div>
         </div>
 
-        <!-- 更多精品资源网站（已优化：居中+去序号+好看配色） -->
+        <!-- 更多精品资源网站 -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-link"></i> 小姬长期维护的其他资源站
