@@ -189,6 +189,21 @@
             word-break: break-all;
             margin-top: 14px;
             border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+        .app-code:hover {
+            background: #e9eaf0;
+        }
+        .app-code::after {
+            content: '点击复制';
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 10px;
+            color: var(--primary);
+            opacity: 0.6;
         }
 
         .footer {
@@ -228,6 +243,67 @@
         }
         .copy-toast.show {
             opacity: 1;
+        }
+
+        /* 资源链接卡片样式 */
+        .resource-list {
+            padding: 20px 24px;
+        }
+        .resource-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+        .resource-item i {
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 16px;
+            width: 16px;
+            text-align: center;
+        }
+        .resource-item a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+            flex: 1;
+            transition: color 0.2s;
+        }
+        .resource-item a:hover {
+            color: var(--primary);
+        }
+
+        /* ———— 二维码排版 ———— */
+        .qrcode-group {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .qrcode-item {
+            flex: 1;
+            text-align: center;
+        }
+        .qrcode-item img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 10px;
+        }
+        .qrcode-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .qrcode-tip {
+            font-size: 12px;
+            color: var(--text-secondary);
         }
 
         /* ———— 手机端彻底重写 ———— */
@@ -270,6 +346,23 @@
                 padding: 12px 14px;
                 font-size: 11px;
             }
+            .resource-list {
+                padding: 16px 20px;
+            }
+            .resource-item {
+                padding: 12px 0;
+            }
+            .resource-item a {
+                font-size: 14px;
+            }
+            .qrcode-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .qrcode-item img {
+                max-width: 200px;
+            }
         }
     </style>
 </head>
@@ -289,7 +382,7 @@
                 <li>无法下载即代表已失效</li>
                 <li>变身失败请切换网络</li>
                 <li>建议用 Safari 浏览器打开</li>
-                <li>✅ 暗号支持**一键点击复制**</li>
+                <li>✅ 暗号 + 代码 支持**一键点击复制**</li>
             </ul>
         </div>
 
@@ -310,9 +403,9 @@
                         <span class="label">其他版本：</span><a href="https://www.155.cn/app/105695.html" style="color:#7c3aed">点击下载安卓版</a><br>
                         <span class="label">变身方法：</span>顶部搜索框 》输入或粘贴暗号「 BGZ0839 」 》 允许网络 》搜索<br>
                         <span class="label">小姬简评：</span>可观看体育直播、小说、漫画，支持缓存、投屏功能（部分功能需登录）<br>
-                        <span class="label">复制代码：</span>若未显示允许粘贴提示，可复制下面代码：
+                        <span class="label">复制代码：</span>若未显示允许粘贴提示，点击下方代码一键复制：
                     </div>
-                    <div class="app-code">#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839</div>
+                    <div class="app-code" onclick="copyLongCode()">#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839</div>
                 </div>
 
                 <!-- 2 持记 / 玄海拾序 -->
@@ -400,6 +493,67 @@
             </div>
         </div>
 
+        <!-- ===================== 更多精品资源网站 ===================== -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-link"></i> 更多精品资源网站
+            </div>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbks-fabuye%2F" target="_blank">资源网站 ①</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2F" target="_blank">资源网站 ②</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fxiaoji.github.io%2F" target="_blank">资源网站 ③</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbksdyjdyfb%2F" target="_blank">资源网站 ④</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fdlrjxzjbks%2F" target="_blank">资源网站 ⑤</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?url=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbskleddjjctja%2F" target="_blank">资源网站 ⑥</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://proxy.edgeone.pp.ua/proxy?vurl=https%3A%2F%2Fl406426025-cmd.github.io%2Fjbkslevpn1%2F" target="_blank">资源网站 ⑦</a>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="https://project.jbks.de5.net" target="_blank">资源网站 ⑧</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== 粉丝群二维码板块 ===================== -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-users"></i> 粉丝交流群
+            </div>
+            <div class="qrcode-group">
+                <div class="qrcode-item">
+                    <img src="https://img.feria.eu.org/va2bzy.jpeg" alt="魔法学院">
+                    <div class="qrcode-title">魔法学院</div>
+                    <div class="qrcode-tip">长按扫码加入</div>
+                </div>
+                <div class="qrcode-item">
+                    <img src="https://img.feria.eu.org/vxs8rr.jpeg" alt="免费副业">
+                    <div class="qrcode-title">免费副业</div>
+                    <div class="qrcode-tip">长按扫码加入</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== 页脚 ===================== -->
         <div class="footer">
             <p><i class="fas fa-heart"></i> 持续更新 · 仅供学习交流</p>
             <p>托管于 GitHub Pages</p>
@@ -414,6 +568,16 @@
         // 一键复制暗号
         function copyCode(el, text) {
             navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 1500);
+            });
+        }
+
+        // 一键复制长代码
+        function copyLongCode() {
+            const longText = `#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839`;
+            navigator.clipboard.writeText(longText).then(() => {
                 const toast = document.getElementById('copyToast');
                 toast.classList.add('show');
                 setTimeout(() => toast.classList.remove('show'), 1500);
