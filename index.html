@@ -102,12 +102,29 @@
             font-size: 18px;
         }
 
-        /* 工具按钮样式 */
+        /* 独立快捷工具卡片 */
+        .tool-card{
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background: var(--card);
+            border: var(--border);
+            padding:26px;
+            margin-bottom:32px;
+        }
+        .tool-card h5{
+            font-size:18px;
+            font-weight:700;
+            color:var(--primary-dark);
+            display:flex;
+            align-items:center;
+            gap:8px;
+            margin-bottom:20px;
+        }
         .tool-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 16px;
         }
         .tool-btn {
             background: var(--primary);
@@ -208,7 +225,6 @@
             content: "";
         }
 
-        /* 统一标签样式 */
         .label {
             font-weight: 700;
             font-size: 16px;
@@ -255,7 +271,6 @@
             color: var(--primary);
         }
 
-        /* 复制提示 */
         .copy-toast {
             position: fixed;
             bottom: 30px;
@@ -274,7 +289,6 @@
             opacity: 1;
         }
 
-        /* 资源链接卡片样式 */
         .resource-list {
             padding: 20px 24px;
         }
@@ -305,7 +319,6 @@
             color: var(--primary);
         }
 
-        /* 二维码排版 */
         .qrcode-group {
             display: flex;
             gap: 20px;
@@ -335,7 +348,6 @@
             color: var(--text-secondary);
         }
 
-        /* 手机端适配 */
         @media (max-width:768px) {
             body {
                 padding: 16px 10px;
@@ -348,7 +360,7 @@
             .header h1 {
                 font-size: 26px;
             }
-            .card {
+            .card,.tool-card {
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
@@ -416,17 +428,20 @@
             <p>无法下载 = 已失效，等待更新即可</p>
         </div>
 
+        <!-- 原生使用须知 -->
         <div class="notice">
             <h5><i class="fas fa-exclamation-triangle"></i> 使用须知</h5>
-            <ul classmb-0 ps-3">
+            <ul class="mb-0 ps-3">
                 <li>无法下载即代表已失效</li>
                 <li>变身失败请切换网络</li>
                 <li>建议用 Safari 浏览器打开</li>
                 <li>✅ 暗号 + 代码 支持一键点击复制</li>
             </ul>
+        </div>
 
-            <!-- 新增：快捷工具按钮 -->
-            <h5 class="mt-4"><i class="fas fa-gift"></i> 快捷资源工具</h5>
+        <!-- 【全新独立单独板块：快捷资源工具】 -->
+        <div class="tool-card">
+            <h5><i class="fas fa-gift"></i> 全网快捷资源直达</h5>
             <div class="tool-buttons">
                 <a href="https://pan.quark.cn/s/7e29c4d4c2d0#/list/share" target="_blank" class="tool-btn">🍉 吃吃瓜</a>
                 <a href="http://aa.plool.com/app/index.html?id=211229kl" target="_blank" class="tool-btn">🎬 搜影视</a>
@@ -440,12 +455,12 @@
             </div>
         </div>
 
+        <!-- APP合集卡片 -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-crown"></i> 精选可用iOS伪装上架神器
             </div>
             <div class="card-body">
-
                 <!-- 1 瓜子影视 -->
                 <div class="app-item">
                     <div class="app-name">瓜子影视</div>
@@ -459,9 +474,8 @@
                         <span class="label">小姬简评：</span>可观看体育直播、小说、漫画，支持缓存、投屏功能（部分功能需登录）<br>
                         <span class="label">复制代码：</span>若未显示允许粘贴提示，点击下方代码一键复制：
                     </div>
-                    <div class="app-code" onclick="copyLongCode()">#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839</div>
+                    <div class="app-code" onclick="copyLongCode()">#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKvBmKi4=#iPhone#code=BGZ0839</div>
                 </div>
-
                 <!-- 2 持记 / 玄海拾序 -->
                 <div class="app-item">
                     <div class="app-name">持记 / 玄海拾序</div>
@@ -475,7 +489,6 @@
                         <span class="label">小姬简评：</span>界面简洁，资源丰富，无广告干扰
                     </div>
                 </div>
-
                 <!-- 3 囧漫 -->
                 <div class="app-item">
                     <div class="app-name">囧漫</div>
@@ -488,7 +501,6 @@
                         <span class="label">小姬简评：</span>影视+漫画双模式，资源更新快
                     </div>
                 </div>
-
                 <!-- 4 可可影视 -->
                 <div class="app-item">
                     <div class="app-name">可可影视</div>
@@ -502,7 +514,6 @@
                         <span class="label">小姬简评：</span>高清线路多，播放流畅，支持缓存
                     </div>
                 </div>
-
                 <!-- 5 小柠檬 -->
                 <div class="app-item">
                     <div class="app-name">小柠檬</div>
@@ -516,7 +527,6 @@
                         <span class="label">小姬简评：</span>支持弹幕、投屏、缓存，使用方便
                     </div>
                 </div>
-
                 <!-- 6 电影天堂（蓝色） -->
                 <div class="app-item">
                     <div class="app-name">电影天堂</div>
@@ -529,7 +539,6 @@
                         <span class="label">小姬简评：</span>支持4K画质，影视资源非常全
                     </div>
                 </div>
-
                 <!-- 7 电影天堂（黄色） -->
                 <div class="app-item">
                     <div class="app-name">影财统筹 / 灯影智加</div>
@@ -543,7 +552,6 @@
                         <span class="label">小姬简评：</span>无广告，纯播放界面，备用首选
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -630,7 +638,7 @@
 
         // 一键复制长代码
         function copyLongCode() {
-            const longText = `#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKQvBmKi4=#iPhone#code=BGZ0839`;
+            const longText = `#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKvBmKi4=#iPhone#code=BGZ0839`;
             navigator.clipboard.writeText(longText).then(() => {
                 const toast = document.getElementById('copyToast');
                 toast.classList.add('show');
