@@ -13,7 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary: #7c3aed;
             --primary-light: #9f7aea;
@@ -30,7 +29,6 @@
             --shadow-hover: 0 15px 40px rgba(124, 58, 237, 0.15);
             --border: 1px solid rgba(255, 255, 255, 0.7);
         }
-
         body {
             background: var(--bg);
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -38,20 +36,16 @@
             line-height: 1.7;
             background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 20%),
             radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 20%);
-            /* 修复整体居中问题 */
             display: flex;
             justify-content: center;
             min-height: 100vh;
         }
-
         .container {
             max-width: 780px;
             width: 100%;
             padding: 20px 14px;
-            /* 确保容器居中 */
             margin: 0 auto;
         }
-
         .header {
             text-align: center;
             background: var(--card);
@@ -63,7 +57,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .header::before {
             content: "";
             position: absolute;
@@ -73,7 +66,6 @@
             height: 6px;
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
         }
-
         .header h1 {
             font-size: 32px;
             font-weight: 800;
@@ -84,13 +76,11 @@
             justify-content: center;
             gap: 12px;
         }
-
         .header p {
             color: var(--text-secondary);
             font-size: 16px;
             margin: 6px 0;
         }
-
         .notice {
             background: linear-gradient(to right, #faf5ff, #fdf4ff);
             border-left: 6px var(--primary) solid;
@@ -99,7 +89,6 @@
             margin-bottom: 24px;
             box-shadow: var(--shadow);
         }
-
         .notice h5 {
             color: var(--primary-dark);
             font-weight: 700;
@@ -109,8 +98,6 @@
             gap: 8px;
             font-size: 18px;
         }
-
-        /* 独立快捷工具卡片 */
         .tool-card {
             border: none;
             border-radius: var(--radius);
@@ -120,7 +107,6 @@
             padding: 26px;
             margin-bottom: 32px;
         }
-
         .tool-card h5 {
             font-size: 18px;
             font-weight: 700;
@@ -130,14 +116,12 @@
             gap: 8px;
             margin-bottom: 20px;
         }
-
         .tool-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: center; /* 工具按钮居中 */
+            justify-content: center;
         }
-
         .tool-btn {
             background: var(--primary);
             color: #fff;
@@ -153,13 +137,11 @@
             align-items: center;
             gap: 6px;
         }
-
         .tool-btn:hover {
             background: var(--primary-dark);
             transform: scale(1.03);
             color: #fff;
         }
-
         .card {
             border: none;
             border-radius: var(--radius);
@@ -170,7 +152,6 @@
             border: var(--border);
             transition: all 0.35 cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .card-header {
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             color: white;
@@ -180,12 +161,10 @@
             border: none;
             display: flex;
             align-items: center;
-            justify-content: center; /* 标题强制居中 */
+            justify-content: center;
             gap: 10px;
             text-align: center;
         }
-
-        /* 可折叠卡片样式 */
         .collapsible-card {
             border: none;
             border-radius: var(--radius);
@@ -195,7 +174,6 @@
             background: var(--card);
             border: var(--border);
         }
-
         .collapsible-header {
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             color: white;
@@ -205,14 +183,12 @@
             border: none;
             display: flex;
             align-items: center;
-            justify-content: center; /* 标题强制居中 */
+            justify-content: center;
             gap: 10px;
             cursor: pointer;
             text-align: center;
             position: relative;
         }
-
-        /* 添加点击展开提示样式 */
         .collapsible-header .expand-hint {
             position: absolute;
             right: 20px;
@@ -223,41 +199,34 @@
             align-items: center;
             gap: 5px;
         }
-
         .collapsible-content {
             padding: 0;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3 ease-out;
         }
-
         .collapsible-content.show {
             max-height: 1000px;
         }
-
-        /* 安卓软件列表样式 - 完全居中 */
         .android-list {
             padding: 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center; /* 强制子元素居中 */
+            align-items: center;
         }
-
         .android-item {
             display: flex;
             align-items: center;
             padding: 16px 0;
             width: 100%;
-            max-width: 300px; /* 限制最大宽度 */
+            max-width: 300px;
             border-bottom: 1px solid #f3f4f6;
-            justify-content: center; /* 项目内容居中 */
+            justify-content: center;
         }
-
         .android-item:last-child {
             border-bottom: none;
         }
-
         .android-item i {
             color: var(--primary);
             margin-right: 12px;
@@ -265,7 +234,6 @@
             width: 24px;
             text-align: center;
         }
-
         .android-item a {
             color: var(--link-color);
             text-decoration: none;
@@ -273,27 +241,22 @@
             font-weight: 500;
             transition: color 0.2;
         }
-
         .android-item a:hover {
             color: var(--link-hover);
         }
-
         .app-item {
             padding: 30px 24px;
             border-bottom: 1px solid #f3f4f6;
         }
-
         .app-item:last-child {
             border-bottom: none;
         }
-
         .app-name {
             font-size: 22px;
             font-weight: 700;
             color: var(--text);
             margin-bottom: 12px;
         }
-
         .app-tag {
             display: inline-block;
             padding: 6px 14px;
@@ -306,33 +269,27 @@
             cursor: pointer;
             transition: all 0.2;
         }
-
         .app-tag:hover {
             transform: scale(1.05);
         }
-
         .tag-ipad {
             background: #10b981;
             color: #fff;
         }
-
         .tag-code {
             background: #4f46e5;
             color: #fff;
         }
-
         .app-desc {
             color: var(--text-secondary);
             font-size: 16px;
             line-height: 1.9;
         }
-
         .app-desc br {
             display: block;
             margin-bottom: 8px;
             content: "";
         }
-
         .label {
             font-weight: 700;
             font-size: 16px;
@@ -340,7 +297,6 @@
             display: inline-block;
             min-width: 95px;
         }
-
         .app-code {
             background: #f3f4f6;
             border-radius: 12px;
@@ -354,11 +310,9 @@
             transition: background 0.2;
             position: relative;
         }
-
         .app-code:hover {
             background: #e9eaf0;
         }
-
         .app-code::after {
             content: '点击复制';
             position: absolute;
@@ -368,7 +322,6 @@
             color: var(--primary);
             opacity: 0.6;
         }
-
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -376,11 +329,9 @@
             font-size: 14px;
             padding-bottom: 20px;
         }
-
         .footer i {
             color: var(--primary);
         }
-
         .copy-toast {
             position: fixed;
             bottom: 30px;
@@ -395,12 +346,9 @@
             pointer-events: none;
             transition: opacity 0.3;
         }
-
         .copy-toast.show {
             opacity: 1;
         }
-
-        /* 资源列表：完全居中 */
         .resource-list {
             padding: 24px;
             text-align: center;
@@ -408,7 +356,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .resource-item {
             display: flex;
             align-items: center;
@@ -418,11 +365,9 @@
             border-bottom: 1px solid #f3f4f6;
             justify-content: center;
         }
-
         .resource-item:last-child {
             border-bottom: none;
         }
-
         .resource-item i {
             color: var(--link-color);
             margin-right: 12px;
@@ -430,18 +375,15 @@
             width: 16px;
             text-align: center;
         }
-
         .resource-item a {
             color: var(--link-color);
             text-decoration: none;
             font-size: 15px;
             transition: color 0.2;
         }
-
         .resource-item a:hover {
             color: var(--link-hover);
         }
-
         .qrcode-group {
             display: flex;
             gap: 20px;
@@ -449,13 +391,11 @@
             justify-content: center;
             align-items: flex-start;
         }
-
         .qrcode-item {
             flex: 1;
             text-align: center;
-            max-width: 200px; /* 限制二维码卡片宽度 */
+            max-width: 200px;
         }
-
         .qrcode-item img {
             width: 100%;
             max-width: 180px;
@@ -463,110 +403,87 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             margin-bottom: 10px;
         }
-
         .qrcode-title {
             font-size: 16px;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 4px;
         }
-
         .qrcode-tip {
             font-size: 13px;
             color: var(--text-secondary);
         }
-
         @media (max-width: 768px) {
             .container {
                 padding: 16px 10px;
             }
-
             .header {
                 padding: 36px 20px;
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
-
             .header h1 {
                 font-size: 26px;
             }
-
             .card, .tool-card, .collapsible-card {
                 border-radius: 20px;
                 margin-bottom: 24px;
             }
-
             .card-header, .collapsible-header {
                 font-size: 17px;
                 padding: 18px 22px;
             }
-            
             .collapsible-header .expand-hint {
                 right: 10px;
                 font-size: 12px;
             }
-
             .app-item {
                 padding: 26px 20px;
             }
-
             .app-name {
                 font-size: 20px;
                 margin-bottom: 10px;
             }
-
             .app-tag {
                 margin-bottom: 14px;
             }
-
             .app-desc {
                 font-size: 15px;
                 line-height: 1.9;
             }
-
             .label {
                 min-width: 90px;
                 font-size: 15px;
             }
-
             .app-code {
                 margin-top: 16px;
                 padding: 12px 14px;
                 font-size: 11px;
             }
-
             .resource-list, .android-list {
                 padding: 16px 20px;
             }
-
             .resource-item, .android-item {
                 padding: 12px 0;
             }
-
             .resource-item a, .android-item a {
                 font-size: 14px;
             }
-
             .qrcode-group {
                 flex-direction: column;
                 align-items: center;
                 gap: 24px;
             }
-
             .qrcode-item img {
                 max-width: 200px;
             }
-
             .tool-buttons {
                 gap: 8px;
             }
-
             .tool-btn {
                 padding: 8px 14px;
                 font-size: 13px;
             }
-            
-            /* 在手机上确保所有元素完全居中 */
             .android-item, .resource-item {
                 width: 100%;
                 justify-content: center;
@@ -574,7 +491,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -583,7 +499,6 @@
             <p>亲测可用 · 持续更新</p>
             <p>无法下载 = 已失效，等待更新即可</p>
         </div>
-
         <!-- 原生使用须知 -->
         <div class="notice">
             <h5><i class="fas fa-exclamation-triangle"></i> 使用须知</h5>
@@ -594,7 +509,6 @@
                 <li>✅ 暗号 + 代码 支持一键点击复制</li>
             </ul>
         </div>
-
         <!-- 【全新独立单独板块：快捷资源工具】 -->
         <div class="tool-card">
             <h5><i class="fas fa-gift"></i> 全网快捷资源直达</h5>
@@ -610,7 +524,6 @@
                 <a href="https://tcnc02rqvgh6.feishu.cn/wiki/N6Zgwhzgri72Avko9Mycdsz4nAg" target="_blank" class="tool-btn">📻 有声书</a>
             </div>
         </div>
-
         <!-- 新增：精选可用安卓影视软件（可折叠板块） -->
         <div class="collapsible-card">
             <div class="collapsible-header" onclick="toggleCollapse(this)">
@@ -642,7 +555,6 @@
                 </div>
             </div>
         </div>
-
         <!-- APP合集卡片 -->
         <div class="card">
             <div class="card-header">
@@ -705,7 +617,7 @@
                 <!-- 5 电影天堂（蓝色） -->
                 <div class="app-item">
                     <div class="app-name">电影天堂（蓝色）</div>
-                    <span class="app-tag tag-code" onclick="copyCode(this,'dy520)">暗号：dy520</span>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'dy520')">暗号：dy520</span>
                     <div class="app-desc">
                         <span class="label">伪装名称：</span>贝尔特拉米<br>
                         <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/%E7%94%B5%E5%BD%B1%E5%A4%A9%E5%A0%82/id6462358830" style="color:#7c3aed">点击前往 App Store 下载</a><br>
@@ -727,9 +639,35 @@
                         <span class="label">小姬简评：</span>支持弹幕、投屏、缓存
                     </div>
                 </div>
-                
+               
+                <!-- 新增：小柿子 -->
+                <div class="app-item">
+                    <div class="app-name">小柿子</div>
+                    <span class="app-tag tag-ipad">iPad适配</span>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'666')">暗号：666</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>易铺管<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/app/id6760799118" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">变身方法：</span>右上角图标 》输入「666」后提交 》重启即可变身<br>
+                        <span class="label">小姬简评：</span>有弹窗广告、支持弹幕/缓存/投屏，建议选择默认靠前的线路
+                    </div>
+                </div>
+
+                <!-- 新增：橘子视频 -->
+                <div class="app-item">
+                    <div class="app-name">橘子视频</div>
+                    <span class="app-tag tag-ipad">iPad适配</span>
+                    <span class="app-tag tag-code" onclick="copyCode(this,'jz10005')">暗号：jz10005</span>
+                    <div class="app-desc">
+                        <span class="label">伪装名称：</span>轮胎周期计算<br>
+                        <span class="label">下载链接：</span><a href="https://apps.apple.com/cn/app/id6758039914" style="color:#7c3aed">点击前往 App Store 下载</a><br>
+                        <span class="label">变身方法：</span>顶部「搜索框」输入/粘贴暗号「jz10005」后提交 》关闭app重新进入<br>
+                        <span class="label">小姬简评：</span>有弹窗广告、更新速度较快、4K画质、弹幕数量多、可看电视直播、支持缓存
+                    </div>
+                </div>
+               
                 <!-- ===== 以下是新增的13个iOS软件 ===== -->
-                
+               
                 <!-- 7 爱其意 -->
                 <div class="app-item">
                     <div class="app-name">爱其意</div>
@@ -742,7 +680,7 @@
                         <span class="label">小姬简评：</span>与"筑材质检"伪装名契合度高，隐蔽性强
                     </div>
                 </div>
-                
+               
                 <!-- 8 松子影院 -->
                 <div class="app-item">
                     <div class="app-name">松子影院</div>
@@ -754,7 +692,7 @@
                         <span class="label">小姬简评：</span>资源丰富，界面简洁
                     </div>
                 </div>
-                
+               
                 <!-- 9 看世界 -->
                 <div class="app-item">
                     <div class="app-name">看世界</div>
@@ -767,7 +705,7 @@
                         <span class="label">小姬简评：</span>暗号已从旧版「999」更新为「2026」
                     </div>
                 </div>
-                
+               
                 <!-- 10 小柚子 -->
                 <div class="app-item">
                     <div class="app-name">小柚子</div>
@@ -780,7 +718,7 @@
                         <span class="label">小姬简评：</span>界面清新，资源更新及时
                     </div>
                 </div>
-                
+               
                 <!-- 11 蒙太奇 -->
                 <div class="app-item">
                     <div class="app-name">蒙太奇</div>
@@ -793,7 +731,7 @@
                         <span class="label">备注：</span>据反馈，此应用登录账号可能记不住播放进度，建议不登录使用
                     </div>
                 </div>
-                
+               
                 <!-- 12 大师兄影视 -->
                 <div class="app-item">
                     <div class="app-name">大师兄影视</div>
@@ -806,7 +744,7 @@
                         <span class="label">小姬简评：</span>基础功能完善，资源覆盖面广
                     </div>
                 </div>
-                
+               
                 <!-- 13 简单影视 -->
                 <div class="app-item">
                     <div class="app-name">简单影视</div>
@@ -819,7 +757,7 @@
                         <span class="label">小姬简评：</span>界面简约，功能直接
                     </div>
                 </div>
-                
+               
                 <!-- 14 壹影视 -->
                 <div class="app-item">
                     <div class="app-name">壹影视</div>
@@ -832,7 +770,7 @@
                         <span class="label">小姬简评：</span>新版本更新频繁，资源库在持续扩充中
                     </div>
                 </div>
-                
+               
                 <!-- 15 荐片 -->
                 <div class="app-item">
                     <div class="app-name">荐片</div>
@@ -845,7 +783,7 @@
                         <span class="label">小姬简评：</span>功能命名直白，主打追剧核心体验
                     </div>
                 </div>
-                
+               
                 <!-- 16 来看吧 -->
                 <div class="app-item">
                     <div class="app-name">来看吧</div>
@@ -858,7 +796,7 @@
                         <span class="label">小姬简评：</span>播放体验稳定，对海外资源支持较好
                     </div>
                 </div>
-                
+               
                 <!-- 17 小企鹅 -->
                 <div class="app-item">
                     <div class="app-name">小企鹅</div>
@@ -871,7 +809,7 @@
                         <span class="label">小姬简评：</span>界面简洁，资源质量尚可
                     </div>
                 </div>
-                
+               
                 <!-- 18 闪乐 -->
                 <div class="app-item">
                     <div class="app-name">闪乐</div>
@@ -884,7 +822,7 @@
                         <span class="label">小姬简评：</span>界面简约，功能直接，无明显广告干扰
                     </div>
                 </div>
-                
+               
                 <!-- 19 太空影视 -->
                 <div class="app-item">
                     <div class="app-name">太空影视</div>
@@ -897,10 +835,9 @@
                         <span class="label">小姬简评：</span>技术向命名，适合对科技感界面偏好的用户
                     </div>
                 </div>
-                
+               
             </div>
         </div>
-
         <!-- 更多精品资源网站 -->
         <div class="card">
             <div class="card-header">
@@ -941,7 +878,6 @@
                 </div>
             </div>
         </div>
-
         <!-- 粉丝群二维码板块 -->
         <div class="card">
             <div class="card-header">
@@ -960,17 +896,14 @@
                 </div>
             </div>
         </div>
-
         <!-- 页脚 -->
         <div class="footer">
             <p><i class="fas fa-heart"></i> 持续更新 · 仅供学习交流</p>
             <p>公众号：软姬工具箱</p>
         </div>
     </div>
-
     <!-- 复制提示 -->
     <div class="copy-toast" id="copyToast">✅ 复制成功</div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // 一键复制暗号
@@ -981,7 +914,6 @@
                 setTimeout(() => toast.classList.remove('show'), 1500);
             });
         }
-
         // 一键复制长代码
         function copyLongCode() {
             const longText = `#iPhone#GOjZ3kxlNw9pD0sdP0WZ9fjOrXVRQ2xFKDp/B+LpandM6UOmZT8rlYQDbDTC/d7Jg2uq78Hdk2xB/wdjsgYkngRqYHPNv6UqoTqElL15YNVyaAiz4cY+nCdrRnPJZqOT5o5WYv+HaMkmt8KPPNIVv7dv1Iw+5JEYQXoyWDN00PLytir+eiCpdlHFOtSQLQ1SMhNs2KX/81N9UocKoD9m5E3d9sjnp38fLtl1xF/BgRtYKJdlx4IyPUBr1RCMvFXF52dgcjhnWSafD1T/L66B51uMH0c6tOEl2IUijMmKbQmqTIVCdTaabHWIaElbZO/TGoFOutTGw5fc7xzGX3Q5YIv7SNfpg7LOajFKvBmKi4=#iPhone#code=BGZ0839`;
@@ -991,14 +923,13 @@
                 setTimeout(() => toast.classList.remove('show'), 1500);
             });
         }
-
         // 可折叠板块功能
         function toggleCollapse(header) {
             const content = header.nextElementSibling;
             const hint = header.querySelector('.expand-hint');
-            
+           
             content.classList.toggle('show');
-            
+           
             if (content.classList.contains('show')) {
                 hint.textContent = '点击收起';
             } else {
